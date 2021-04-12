@@ -1,14 +1,24 @@
 var canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 var maxRadius = 40;
-var r = 3;
+var r = 5;
 var mouse = {
   x: undefined,
   y: undefined,
 };
 var amt = 800;
 
-var colorArray = ["#5B2D87", "#E62591", "#009AB8", "#F57A20", "#E8E615"];
+var colorArray = [
+  "#272F32",
+  "#9DBDC6",
+  "#FF3D2E",
+  "#DAEAEF",
+  "#5B2D87",
+  "#E62591",
+  "#009AB8",
+  "#F57A20",
+  "#E8E615",
+];
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -54,7 +64,7 @@ function Circle(x, y, radius, dx, dy) {
       false
     );
     c.fillStyle = this.color;
-    c.lineWidth = 2;
+    c.lineWidth = 0.5;
     c.stroke();
     c.fill();
   };
