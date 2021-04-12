@@ -5,7 +5,7 @@ var mouse = {
   x: undefined,
   y: undefined,
 };
-var amt = 400;
+var amt =300;
 var colorArray = ["#5B2D87", "#E62591", "#009AB8", "#F57A20", "#E8E615"];
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -81,8 +81,10 @@ function Circle(x, y, radius, dx, dy) {
 var circleArray = [];
 function init() {
   circleArray = [];
+  if (window.innerWidth < window.innerHeight) amt = 800;
+  else amt = 1200;
   for (var i = 0; i < amt; i++) {
-    var radius = Math.random() * 10 + 1;
+    var radius = Math.random() * 18 + 1;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2) + radius;
     var dx = (Math.random() - 0.5) * 1;
