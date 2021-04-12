@@ -5,14 +5,15 @@ var mouse = {
   x: undefined,
   y: undefined,
 };
+var amt = 300;
 var colorArray = ["#5B2D87", "#E62591", "#009AB8", "#F57A20", "#E8E615"];
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-//Event Listeeners
+// Event Listeeners
 window.addEventListener("mousemove", function (event) {
-  mouse.x = event.x;
-  mouse.y = event.y;
+  mouse.x = event.clientX;
+  mouse.y = event.clientY;
   console.log(mouse.x, mouse.y);
 });
 
@@ -29,6 +30,7 @@ window.addEventListener(
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  amt = window.innerWidth * 1;
   init();
 });
 
@@ -51,6 +53,7 @@ function Circle(x, y, radius, dx, dy) {
       false
     );
     c.fillStyle = this.color;
+    c.stroke();
     c.fill();
   };
   this.update = function () {
@@ -79,7 +82,7 @@ function Circle(x, y, radius, dx, dy) {
 var circleArray = [];
 function init() {
   circleArray = [];
-  for (var i = 0; i < 1200; i++) {
+  for (var i = 0; i < amt; i++) {
     var radius = Math.random() * 10 + 1;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2) + radius;
