@@ -76,10 +76,10 @@ function Circle(x, y, radius, dx, dy) {
 
     // Logic
     if (
-      mouse.x - this.x < 40 &&
-      mouse.x - this.x > -40 &&
-      mouse.y - this.y < 40 &&
-      mouse.y - this.y > -40
+      mouse.x - this.x < 50 &&
+      mouse.x - this.x > -50 &&
+      mouse.y - this.y < 50 &&
+      mouse.y - this.y > -50
     ) {
       if (this.radius < maxRadius) {
         this.radius += 10;
@@ -94,9 +94,9 @@ function Circle(x, y, radius, dx, dy) {
 var circleArray = [];
 function init() {
   if (window.innerWidth < window.innerHeight) {
-    amt = 600;
+    amt = 800;
     r = 4;
-    maxRadius = 18;
+    maxRadius = 35;
   } else amt = 1200;
   circleArray = [];
   for (var i = 0; i < amt; i++) {
