@@ -55,7 +55,7 @@ function Circle(x, y, radius, dx, dy) {
       false
     );
     c.fillStyle = this.color;
-    c.lineWidth = 10;
+    c.lineWidth = 6;
     c.stroke();
     c.fill();
   };
@@ -85,7 +85,7 @@ function Circle(x, y, radius, dx, dy) {
 var circleArray = [];
 function init() {
   if (window.innerWidth < window.innerHeight) {
-    amt = 700;
+    amt = 800;
     r = 10;
     maxRadius = 22;
   } else amt = 1200;
