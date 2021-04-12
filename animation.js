@@ -82,10 +82,10 @@ function Circle(x, y, radius, dx, dy) {
       mouse.y - this.y > -50
     ) {
       if (this.radius < maxRadius) {
-        this.radius += 6;
+        this.radius += 3;
       }
     } else if (this.radius > this.maxRadius) {
-      this.radius -= 6;
+      this.radius -= 1.5;
     }
     this.draw();
   };
