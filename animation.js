@@ -30,7 +30,6 @@ window.addEventListener(
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  amt = window.innerWidth * 1;
   init();
 });
 
