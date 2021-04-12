@@ -55,7 +55,7 @@ function Circle(x, y, radius, dx, dy) {
       false
     );
     c.fillStyle = this.color;
-    c.lineWidth = 4;
+    c.lineWidth = 10;
     c.stroke();
     c.fill();
   };
