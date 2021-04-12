@@ -1,12 +1,12 @@
 var canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
-var maxRadius = 35;
-var r = 15;
+var maxRadius = 40;
+var r = 3;
 var mouse = {
   x: undefined,
   y: undefined,
 };
-var amt = 300;
+var amt = 800;
 
 var colorArray = ["#5B2D87", "#E62591", "#009AB8", "#F57A20", "#E8E615"];
 canvas.width = window.innerWidth;
@@ -30,7 +30,6 @@ window.addEventListener(
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  amt = window.innerWidth * 1;
   console.log(canvas.width);
   console.log(canvas.height);
   init();
@@ -55,7 +54,7 @@ function Circle(x, y, radius, dx, dy) {
       false
     );
     c.fillStyle = this.color;
-    c.lineWidth = 3;
+    c.lineWidth = 2;
     c.stroke();
     c.fill();
   };
@@ -67,13 +66,13 @@ function Circle(x, y, radius, dx, dy) {
 
     // Logic
     if (
-      mouse.x - this.x < 80 &&
-      mouse.x - this.x > -80 &&
-      mouse.y - this.y < 80 &&
-      mouse.y - this.y > -80
+      mouse.x - this.x < 40 &&
+      mouse.x - this.x > -40 &&
+      mouse.y - this.y < 40 &&
+      mouse.y - this.y > -40
     ) {
       if (this.radius < maxRadius) {
-        this.radius += 1;
+        this.radius += 10;
       }
     } else if (this.radius > this.maxRadius) {
       this.radius -= 1;
@@ -85,17 +84,17 @@ function Circle(x, y, radius, dx, dy) {
 var circleArray = [];
 function init() {
   if (window.innerWidth < window.innerHeight) {
-    amt = 800;
-    r = 10;
-    maxRadius = 22;
+    amt = 600;
+    r = 2;
+    maxRadius = 18;
   } else amt = 1200;
   circleArray = [];
   for (var i = 0; i < amt; i++) {
     var radius = Math.random() * r + 1;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2) + radius;
-    var dx = (Math.random() - 0.5) * 1;
-    var dy = (Math.random() - 0.5) * 1;
+    var dx = (Math.random() - 0.5) * 10;
+    var dy = (Math.random() - 0.5) * 10;
     circleArray.push(new Circle(x, y, radius, dx, dy));
   }
 }
