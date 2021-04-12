@@ -85,7 +85,7 @@ function Circle(x, y, radius, dx, dy) {
         this.radius += 3;
       }
     } else if (this.radius > this.maxRadius) {
-      this.radius -= 1.5;
+      this.radius -= 1;
     }
     this.draw();
   };
