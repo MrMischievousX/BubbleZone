@@ -95,8 +95,8 @@ var circleArray = [];
 function init() {
   if (window.innerWidth < window.innerHeight) {
     amt = 600;
-    r = 3.6;
-    maxRadius = 25;
+    r = 3.1;
+    maxRadius = 20;
   } else amt = 1200;
   circleArray = [];
   for (var i = 0; i < amt; i++) {
