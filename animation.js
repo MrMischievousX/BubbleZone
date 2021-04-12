@@ -5,7 +5,7 @@ var mouse = {
   x: undefined,
   y: undefined,
 };
-var amt = 300;
+var amt = 400;
 var colorArray = ["#5B2D87", "#E62591", "#009AB8", "#F57A20", "#E8E615"];
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
