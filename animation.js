@@ -1,11 +1,13 @@
 var canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
-var maxRadius = 40;
+var maxRadius = 35;
+var r = 15;
 var mouse = {
   x: undefined,
   y: undefined,
 };
-var amt =300;
+var amt = 300;
+
 var colorArray = ["#5B2D87", "#E62591", "#009AB8", "#F57A20", "#E8E615"];
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -14,7 +16,6 @@ canvas.height = window.innerHeight;
 window.addEventListener("mousemove", function (event) {
   mouse.x = event.clientX;
   mouse.y = event.clientY;
-  console.log(mouse.x, mouse.y);
 });
 
 window.addEventListener(
@@ -22,7 +23,6 @@ window.addEventListener(
   function (ev) {
     mouse.x = ev.touches[0].clientX;
     mouse.y = ev.touches[0].clientY;
-    console.log(mouse.x, mouse.y);
   },
   false
 );
@@ -30,6 +30,9 @@ window.addEventListener(
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  amt = window.innerWidth * 1;
+  console.log(canvas.width);
+  console.log(canvas.height);
   init();
 });
 
@@ -52,6 +55,7 @@ function Circle(x, y, radius, dx, dy) {
       false
     );
     c.fillStyle = this.color;
+    c.lineWidth = 4;
     c.stroke();
     c.fill();
   };
@@ -63,10 +67,10 @@ function Circle(x, y, radius, dx, dy) {
 
     // Logic
     if (
-      mouse.x - this.x < 50 &&
-      mouse.x - this.x > -50 &&
-      mouse.y - this.y < 50 &&
-      mouse.y - this.y > -50
+      mouse.x - this.x < 80 &&
+      mouse.x - this.x > -80 &&
+      mouse.y - this.y < 80 &&
+      mouse.y - this.y > -80
     ) {
       if (this.radius < maxRadius) {
         this.radius += 1;
@@ -80,11 +84,14 @@ function Circle(x, y, radius, dx, dy) {
 
 var circleArray = [];
 function init() {
+  if (window.innerWidth < window.innerHeight) {
+    amt = 700;
+    r = 10;
+    maxRadius = 22;
+  } else amt = 1200;
   circleArray = [];
-  if (window.innerWidth < window.innerHeight) amt = 800;
-  else amt = 1200;
   for (var i = 0; i < amt; i++) {
-    var radius = Math.random() * 18 + 1;
+    var radius = Math.random() * r + 1;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2) + radius;
     var dx = (Math.random() - 0.5) * 1;
