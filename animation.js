@@ -64,7 +64,7 @@ function Circle(x, y, radius, dx, dy) {
       false
     );
     c.fillStyle = this.color;
-    c.lineWidth = 0.7;
+    c.lineWidth = 0.5;
     c.stroke();
     c.fill();
   };
@@ -82,10 +82,10 @@ function Circle(x, y, radius, dx, dy) {
       mouse.y - this.y > -50
     ) {
       if (this.radius < maxRadius) {
-        this.radius += 8;
+        this.radius += 6;
       }
     } else if (this.radius > this.maxRadius) {
-      this.radius -= 1;
+      this.radius -= 6;
     }
     this.draw();
   };
@@ -96,7 +96,7 @@ function init() {
   if (window.innerWidth < window.innerHeight) {
     amt = 600;
     r = 3.1;
-    maxRadius = 20;
+    maxRadius = 18;
   } else amt = 1200;
   circleArray = [];
   for (var i = 0; i < amt; i++) {
